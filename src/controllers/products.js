@@ -5,16 +5,34 @@ async function get(req, res){
 
     const obj = id ? { _id: id } : null
 
-
-
     const products = await productsModel.find(obj)
 
     res.send(products)
+}
+
+async function post(req, res){
+    const {
+        name,
+        brand,
+        price,
+    } = req.body
+
+    const product = new productsModel({
+        name,
+        brand,
+        price
+    })
+
+    product.save()
+
+    res.send({
+        message: "sucesso"
+    })
 }
 
 
 
 
 module.exports = {
-    get,
+    get, post,
 }
