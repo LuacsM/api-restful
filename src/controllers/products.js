@@ -13,14 +13,36 @@ async function get(req, res){
 async function post(req, res){
     const {
         name,
-        brand,
-        price,
+        matricula,
+        age,
+        nameMother,
+        cpf,
+        tel,
+        tel2,
+        cep,
+        address,
+        numHouse,
+        city,
+        district,
+        complement,
+        email,
     } = req.body
 
     const product = new productsModel({
         name,
-        brand,
-        price
+        matricula,
+        age,
+        nameMother,
+        cpf,
+        tel,
+        tel2,
+        cep,
+        address,
+        numHouse,
+        city,
+        district,
+        complement,
+        email,
     })
 
     product.save()
