@@ -65,8 +65,6 @@ async function remove(req, res){
 }
 
 
-
-
 module.exports = {
     get, post, put, remove,
 }
