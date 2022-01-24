@@ -11,7 +11,7 @@ db.connect()
 
 const allowedOrigins = [
     'http://127.0.0.1:5500', 
-    'http://www.lucaslegaloba.com.br',
+    'http://localhost:3000',
 ]
 
 //habilita CORS
