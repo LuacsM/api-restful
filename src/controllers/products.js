@@ -1,9 +1,19 @@
 const productsModel = require('../models/products')
 
 async function get(req, res){
+    const {matricula, age} = req.params
+
+    const obj = matricula ? { matricula: matricula, age: age } : null
+
+    const products = await productsModel.find(obj)
+
+    res.send(products)
+}
+
+async function getId(req, res){
     const {id} = req.params
 
-    const obj = id ? { _id: id } : null
+    const obj = id ? { _id: id} : null
 
     const products = await productsModel.find(obj)
 
@@ -88,5 +98,5 @@ async function remove(req, res){
 
 
 module.exports = {
-    get, post, put, remove,
+    get, post, put, remove, getId,
 }
