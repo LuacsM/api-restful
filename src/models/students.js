@@ -17,6 +17,6 @@ const schema = new mongoose.Schema({
     email: String,
 })
 
-const Model = mongoose.model('products', schema)
+const Model = mongoose.model('students', schema)
 
 module.exports = Model

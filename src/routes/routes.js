@@ -1,11 +1,11 @@
 const router = require('express').Router()
-const productController = require('../controllers/products')
+const studentController = require('../controllers/students')
 
 
-router.get('/products/:id?', productController.getId)
-router.get('/products/matricula/:matricula?/:age?', productController.get)
-router.post('/products', productController.post)
-router.put('/products/:id', productController.put)
-router.delete('/products/:id', productController.remove)
+router.get('/students/:id?', studentController.getId)
+router.get('/students/matricula/:matricula?/:age?', studentController.get)
+router.post('/students', studentController.post)
+router.put('/students/:id', studentController.put)
+router.delete('/students/:id', studentController.remove)
 
 module.exports = router

@@ -1,13 +1,13 @@
-const productsModel = require('../models/products')
+const studentsModel = require('../models/students')
 
 async function get(req, res){
     const {matricula, age} = req.params
 
     const obj = matricula ? { matricula: matricula, age: age } : null
 
-    const products = await productsModel.find(obj)
+    const students = await studentsModel.find(obj)
 
-    res.send(products)
+    res.send(students)
 }
 
 async function getId(req, res){
@@ -15,9 +15,9 @@ async function getId(req, res){
 
     const obj = id ? { _id: id} : null
 
-    const products = await productsModel.find(obj)
+    const students = await studentsModel.find(obj)
 
-    res.send(products)
+    res.send(students)
 }
 
 async function post(req, res){
@@ -38,7 +38,7 @@ async function post(req, res){
         email,
     } = req.body
 
-    const product = new productsModel({
+    const student = new studentsModel({
         name,
         matricula,
         age,
@@ -55,7 +55,7 @@ async function post(req, res){
         email,
     })
 
-    product.save()
+    student.save()
 
     res.send({
         message: "sucesso"
@@ -66,28 +66,18 @@ async function put(req, res){
     const {id} = req.params
 
 
-    const product = await productsModel.findOneAndUpdate({ _id: id}, req.body, {new: true})
+    const student = await studentsModel.findOneAndUpdate({ _id: id}, req.body, {new: true})
     
     res.send({
         message: "sucesso",
-        product,
+        student,
     })
-
-    /* Edita Produto 
-    const product = await productsModel.findOne({_id: id})
-    
-    await product.updateOne(req.body)
-
-    res.send({
-        message: "sucesso",
-        product,
-    }) */
 }
 
 async function remove(req, res){
     const {id} = req.params
 
-    const remove = await productsModel.deleteOne({_id: id})
+    const remove = await studentsModel.deleteOne({_id: id})
 
     const message = remove ? "sucesso" : "error"
 
